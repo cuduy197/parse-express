@@ -1,0 +1,1 @@
+parse-dashboard --appId cunghoctot --masterKey kdkdsmile --serverURL "http://localhost:1337/parse" --appName CungHocTot
