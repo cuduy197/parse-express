@@ -55,15 +55,17 @@ module.exports = function updateRole(params) {
                   }
                 })
                 .catch(httpRequestError => {
-                  res.error(httpRequestError.message);
+                  res.error(
+                    "Có lỗi khi Http Request: " + httpRequestError.message
+                  );
                 });
             })
             .catch(queryRoleError => {
-              res.error(queryRoleError.message);
+              res.error("Có lỗi tìm Role: " + queryRoleError.message);
             });
         })
         .catch(queryUserError => {
-          res.error(queryUserError.message);
+          res.error("Có lỗi tìm User: " + queryUserError.message);
         });
     } else {
       res.error("⛔️");
