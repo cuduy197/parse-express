@@ -22,11 +22,15 @@ module.exports = function checkUserInRole() {
             var queryUserRole = new Parse.Query(role);
             queryUserRole.equalTo("users", user);
             queryUserRole.find().then(userRoleResult => {
-              if (userRoleResult.length > 0) {
-                res.success(`${userName} có trong role "${roleName}"! ✅`);
-              } else {
-                res.error(`${userName} không có trong role "${roleName}"! ⛔️`);
-              }
+              userRoleResult.forEach(roleUserResult => {
+                if (roleUserResult.get("name") === roleName) {
+                  res.success(`${userName} có trong role "${roleName}"! ✅`);
+                } else {
+                  res.error(
+                    `${userName} không có trong role "${roleName}"! ⛔️`
+                  );
+                }
+              });
             });
           })
           .catch(queryRoleError => {
@@ -41,8 +45,6 @@ module.exports = function checkUserInRole() {
   //💡 checkUserInAllRole
   Parse.Cloud.define("checkUserInAllRole", (req, res) => {
     const userName = req.params.userName;
-    const roleName = req.params.roleName;
-
     const queryUser = new Parse.Query(Parse.User); // 👁‍🗨
     queryUser.equalTo("username", userName);
     queryUser
@@ -56,7 +58,16 @@ module.exports = function checkUserInRole() {
           .find({ useMasterKey: true }) //🔍
           .then(roleResult => {
             if (roleResult.length > 0) {
-              res.success(roleResult);
+              let roleList = "";
+              roleResult.forEach(role => {
+                roleList =
+                  roleList.length !== 1
+                    ? `${roleList}<li>👉 ${role.get("name")}</li>`
+                    : role.get("name");
+              });
+              res.success(
+                `😃 "${userName}" ✅ thuộc ${roleResult.length} role :<br>${roleList}<br>`
+              );
             } else {
               res.error("Người dùng chưa được thêm vào role nào ⛔️ ");
             }

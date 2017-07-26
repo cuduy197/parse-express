@@ -2,13 +2,134 @@
 <html lang="en">
 
 <head>
-    <title>Parse Server Example</title>
+    <meta charset="UTF-8">
+    <title>Trang quản lý Admin 🏳️‍🌈</title>
+    <meta name="author" content="cuduy197">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&amp;subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="/public/assets/style.css">
+    <link rel="stylesheet" href="/public/assets/animate.min.css" />
+    <link rel="stylesheet" href="/public/assets/index.css">
+    <style>
+
+    </style>
+
 </head>
 
-<body>
-    <h1>Parse !</h1>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parse/1.10.0/parse.min.js"></script>
+<body style="height: 100vh; background-color: black; color: whitesmoke; ">
+    <div id="app" v-cloak style="padding:0 20px 0 20px;">
+        <div v-if="loggedIn===null" class="animated fadeIn">
+            <br>
+            <h3> Đang tải ... </h3>
+        </div>
+        <div v-else class="animated fadeIn">
+            <div v-if="loggedIn" class="animated fadeIn">
+                <button @click="logOut">Đăng xuất 🔓</button>
+                <hr>
+                <el-row :gutter="20">
+                    <div>
+                        <!-- Thông tin người dùng -->
+                        <el-col :sm="24" :md="4">
+                            <p> Xin chào : "{{userInfo.username}}" 👋 </p>
+                            <p> id: "{{userInfo.id}}" 👓</p>
+                            <p>🚩 Role : </p>
+                            <div v-if="!loading.role">
+                                <div v-if="userInfo.role.length > 0">
+                                    <li v-for="role in userInfo.role" class="animated fadeIn">
+                                        {{ role }} 🍀
+                                    </li>
+                                    <br>
+                                    <button @click="checkUserAllRole">🔄 Cập nhật lại danh sách role  </button>
+                                </div>
+                                <div v-else class="animated infinite fadeIn">
+                                    <p> Đang tải ... </p>
+                                </div>
+
+                            </div>
+                            <div v-else class="animated infinite fadeIn">
+                                <p>Đang tải thông tin role ...</p>
+                            </div>
+                        </el-col>
+                        <!-- Thông tin người dùng -->
+                        <!--  Chỉnh sửa role -->
+                        <el-col :sm="24" :md="4">
+                            <div v-if="roleInput.roleList.length > 0">
+                                <form>
+                                    <p>Chọn role: ⚖️</p>
+                                    <select v-model="roleInput.roleSelect" style="width: 100%">
+                                    <option v-for="roleName in roleInput.roleList">{{roleName}}</option>
+                                    </select>
+                                    <p>Tài khoản 😃</p>
+                                    <input v-model="roleInput.userName" type="text" style="width: 100%">
+                                </form>
+                                <br>
+                                <div v-if="!loading.checkRole" class="animated fadeIn">
+                                    <button @click="editUserInRole_Cloud('add')">
+                                        ➕ Thêm [{{roleInput.userName}}] 
+                                    </button>
+                                    <br><br>
+                                    <button @click="editUserInRole_Cloud('remove')">
+                                       ➖ Xóa [{{roleInput.userName}}] 
+                                    </button>
+                                    <br><br>
+                                    <button @click="checkUserInRole_Cloud">
+                                       ❓Kiểm tra role [{{roleInput.userName}}] 
+                                    </button>
+                                    <div v-if="roleInput.roleSelect!=='admin'&&
+                                    roleInput.roleSelect!=='mod'&& roleInput.roleSelect!=='creator' ">
+                                        <br>
+                                        <button @click="deleteRole_Cloud">
+                                            Xóa role "{{roleInput.roleSelect}}" ⛔️
+                                         </button>
+                                    </div>
+                                    <div>
+                                        <br>
+                                        <button @click="addRole_Cloud">
+                                       Tạo thêm role  🔮
+                                    </button>
+
+                                    </div>
+                                </div>
+                                <div v-else class="animated infinite flash">
+                                    <p>Đang thực hiện ...</p>
+                                </div>
+
+                            </div>
+                            <div v-else class="animated infinite flash">
+                                <p>Đang tải dữ liệu ...</p>
+                            </div>
+                        </el-col>
+                        <!--  Chỉnh sửa role -->
+                    </div>
+                </el-row>
+            </div>
+            <div v-else class="animated fadeInDown">
+                <br>
+                <h3> {{hello}} </h3>
+                <hr>
+                <div v-if="!loading.login">
+                    <form>
+                        <p>😃 Tên người dùng:</p>
+                        <input type="text" v-model="userInput.name">
+                        <p>🔑 Mật khẩu:</p>
+                        <input type="password" v-model="userInput.pass">
+                    </form>
+                    <br>
+                    <button @click="logIn">Đăng nhập 🔒</button>
+                </div>
+                <div v-else class="animated flipInX">
+                    <p>Tiến hành đăng nhập ...</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/public/assets/alertMod.js"></script>
+    <script src="/public/assets/js/vue.js"></script>
+    <script src="/public/assets/js/vue-element.js"></script>
+    <script src="/public/assets/js/parse.min.js"></script>
     <script src="/public/assets/js/script.js"></script>
+
 </body>
 
 </html>
