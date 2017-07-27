@@ -1,7 +1,10 @@
 var express = require("express");
 var ParseServer = require("parse-server").ParseServer;
 var path = require("path");
+import compression from "compression";
+
 var app = express();
+app.use(compression());
 
 var config = {
   databaseURI: "mongodb://lab:123456@35.185.183.70:27017/lab",
