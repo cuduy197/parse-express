@@ -1,7 +1,7 @@
 var express = require("express");
 var ParseServer = require("parse-server").ParseServer;
 var path = require("path");
-import compression from "compression";
+var compression = require("compression");
 
 var app = express();
 app.use(compression());
