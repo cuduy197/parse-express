@@ -6,6 +6,12 @@ body {
     text-align: center;
     font-family: 'Comfortaa', 'Arial';
     font-size: 18px;
+    background: linear-gradient(312deg, #b377c5, #ff7f50);
+    background-size: 400% 400%;
+    -webkit-animation: bgAnimated 30s ease infinite;
+    -moz-animation: bgAnimated 30s ease infinite;
+    -o-animation: bgAnimated 30s ease infinite;
+    animation: bgAnimated 30s ease infinite;
 }
 
 button {
@@ -20,9 +26,10 @@ button {
 }
 
 button:hover {
-    transform: scale(1.1, 1.1);
+    /*  transform: scale(1.1, 1.1); */
     background-color: white;
     color: black;
+    border: solid 5px lightcoral;
     box-shadow: 5px 5px 2px purple;
 }
 
@@ -40,8 +47,58 @@ select {
 
 input:hover,
 select:hover {
-    border: 2px solid white;
+    border: solid 5px lightcoral;
     box-shadow: 5px 5px 2px purple;
+    background-color: white;
+    color: black;
+}
+
+@-webkit-keyframes bgAnimated {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 31%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
+}
+
+@-moz-keyframes bgAnimated {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 31%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
+}
+
+@-o-keyframes bgAnimated {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 31%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
+}
+
+@keyframes bgAnimated {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 31%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
 }
 
 
@@ -59,7 +116,7 @@ select:hover {
     border-radius: 15px;
     /* background-color: black; */
     color: black;
-    padding: 6.7vh 10px 0em 15px;
+    padding: 2.34em 10px 0em 15px;
     visibility: hidden;
     font-weight: bolder;
     transition: all .25s linear .2s;
@@ -80,7 +137,7 @@ select:hover {
 }
 
 .alertBox:hover {
-    border: solid 5px blanchedalmond;
+    border: solid 5px lightcoral;
     box-shadow: 5px 5px 2px purple;
 }
 

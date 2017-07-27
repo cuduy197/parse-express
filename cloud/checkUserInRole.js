@@ -69,7 +69,7 @@ module.exports = function checkUserInRole() {
                 `😃 "${userName}" ✅ thuộc ${roleResult.length} role :<br>${roleList}<br>`
               );
             } else {
-              res.error("Người dùng chưa được thêm vào role nào ⛔️ ");
+              res.error(`😃 "${userName}" chưa được thêm vào role nào ⛔️ `);
             }
           })
           .catch(queryRoleError => {

@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="/public/assets/style.css">
     <link rel="stylesheet" href="/public/assets/animate.min.css" />
     <link rel="stylesheet" href="/public/assets/index.css">
-    <style>
-
-    </style>
 
 </head>
 
@@ -52,7 +49,7 @@
                         </el-col>
                         <!-- Thông tin người dùng -->
                         <!--  Chỉnh sửa role -->
-                        <el-col :sm="24" :md="4">
+                        <el-col :sm="24" :md="20">
                             <div v-if="roleInput.roleList.length > 0">
                                 <form>
                                     <p>Chọn role: ⚖️</p>
@@ -65,11 +62,10 @@
                                 <br>
                                 <div v-if="!loading.checkRole" class="animated fadeIn">
                                     <button @click="editUserInRole_Cloud('add')">
-                                        ➕ Thêm [{{roleInput.userName}}] 
+                                     Thêm +
                                     </button>
-                                    <br><br>
                                     <button @click="editUserInRole_Cloud('remove')">
-                                       ➖ Xóa [{{roleInput.userName}}] 
+                                       Xóa -
                                     </button>
                                     <br><br>
                                     <button @click="checkUserInRole_Cloud">

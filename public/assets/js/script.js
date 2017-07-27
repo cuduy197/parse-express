@@ -1,5 +1,6 @@
 Parse.initialize("cunghoctot");
-Parse.serverURL = "http://localhost:1337/parse";
+
+Parse.serverURL = window.location.href + "parse";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

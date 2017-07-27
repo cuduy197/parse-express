@@ -13,6 +13,7 @@ window.alert = function(msg, time) {
   document.body.appendChild(alertBox);
   alertBox.id = id;
   alertBox.innerHTML = msg;
+  alertBox.tagName = "alert";
   alertBox.className = classNameIn;
 
   //Alert close
