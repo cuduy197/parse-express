@@ -26,7 +26,7 @@
                 <hr>
                 <!-- Tab -->
                 <el-tabs v-model="activeName" type="border-card" style="border-radius: 5px;">
-                    <el-tab-pane label="Thông tin ⭐" name="first">
+                    <el-tab-pane label="Thông tin 🔍" name="first">
                         <!-- Thông tin người dùng -->
                         <div class="animated fadeInDown">
                             <p> Người dùng hiện tại: "{{userInfo.username}}" 👋 </p>
@@ -54,7 +54,7 @@
                         </div>
                         <!-- Thông tin người dùng -->
                     </el-tab-pane>
-                    <el-tab-pane label="Chỉnh sửa Role ⚒" name="second">
+                    <el-tab-pane label="Chỉnh sửa Role ⚖️" name="second">
                         <!--  Chỉnh sửa role -->
                         <el-row :gutter="30" class="animated fadeInDown">
                             <div v-if="!loading.checkRole">
@@ -108,7 +108,7 @@
                         <br><br>
                         <!--  Chỉnh sửa role -->
                     </el-tab-pane>
-                    <el-tab-pane label="Cài đặt ⚙" name="third">
+                    <el-tab-pane label="Cài đặt 🔧" name="third">
                         <div class="animated fadeInDown">
                             <p>Mật khẩu quản trị (masterKey) 🔑 </p>
                             <input type="password" v-model="userInput.masterKey">

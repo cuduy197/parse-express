@@ -15,7 +15,6 @@ body {
     -moz-animation: bgAnimated 30s ease infinite;
     -o-animation: bgAnimated 30s ease infinite;
     animation: bgAnimated 30s ease infinite;
-    overflow: hidden;
 }
 
 p {
