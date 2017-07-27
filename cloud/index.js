@@ -1,7 +1,7 @@
-var updateRole = require("./updateRole");
-var checkUserInRole = require("./checkUserInRole");
-var addRole = require("./addRole");
-var deleteRole = require("./deleteRole");
+var updateRole = require("./role/updateRole");
+var checkUserInRole = require("./role/checkUserInRole");
+var addRole = require("./role/addRole");
+var deleteRole = require("./role/deleteRole");
 
 //var test = require("./test");
 

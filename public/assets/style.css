@@ -11,10 +11,16 @@ body {
     background: linear-gradient(312deg, #b377c5, #ff7f50);
     height: 100%;
     background-size: 400% 400%;
-    -webkit-animation: bgAnimated 30s ease infinite;
-    -moz-animation: bgAnimated 30s ease infinite;
-    -o-animation: bgAnimated 30s ease infinite;
-    animation: bgAnimated 30s ease infinite;
+}
+
+@media screen and (min-width: 900px) {
+    html,
+    body {
+        -webkit-animation: bgAnimated 30s ease infinite;
+        -moz-animation: bgAnimated 30s ease infinite;
+        -o-animation: bgAnimated 30s ease infinite;
+        animation: bgAnimated 30s ease infinite;
+    }
 }
 
 p {
@@ -117,7 +123,7 @@ select:hover {
     font-family: 'Comfortaa', 'Arial';
     top: 65vh;
     left: 65vw;
-    right: .1vw;
+    right: 1vw;
     min-width: 12em;
     min-height: 10vh;
     border: solid 5px blanchedalmond;
@@ -167,7 +173,7 @@ select:hover {
 
 @media screen and (max-width: 900px) {
     .alertBox {
-        top: 75vh;
+        top: 0.2vh;
         left: 5vw;
         right: 5vw;
         padding: 6vh 10px 0em 10px;

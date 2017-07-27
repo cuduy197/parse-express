@@ -1,4 +1,5 @@
-var ParseIndex = require("../index");
+var ParseIndex = require("../../index");
+
 // Cloud with masterKey check!
 module.exports = function deleteRole(params) {
   Parse.Cloud.define("deleteRole", (req, res) => {
@@ -31,7 +32,7 @@ module.exports = function deleteRole(params) {
                   res.success("Đã role " + roleName + " thành công ✅");
                 },
                 function(httpResponse) {
-                  res.error("Có lỗi khi thực hiện Http request  ⛔️");
+                  res.error("⛔️ Có lỗi khi thực hiện Http request  ⛔️");
                 }
               ); // end http req
           },

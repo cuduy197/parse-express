@@ -1,4 +1,4 @@
-var ParseIndex = require("../index");
+var ParseIndex = require("../../index");
 
 module.exports = function addRole(params) {
   Parse.Cloud.define("addRole", (req, res) => {

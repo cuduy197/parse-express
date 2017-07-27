@@ -34,7 +34,7 @@ window.alert = function(msg, time) {
     setTimeout(function() {
       alertBox.remove();
       alertClose.remove();
-    }, 500);
+    }, 700);
   }
 
   //Auto close
@@ -59,7 +59,7 @@ window.alert = function(msg, time) {
     setTimeout(function() {
       alertBox.remove();
       clearInterval(TimeCloseInterval);
-    }, 500);
+    }, 700);
   }, timeClose * 1000 + 500);
 
   //Cance auto close

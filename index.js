@@ -28,7 +28,10 @@ app.use("/parse", new ParseServer(config));
 app.use("/public", express.static(path.join(__dirname, "/public")));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/public/test.html"));
+  res.send("200");
+});
+app.get("/role", function(req, res) {
+  res.sendFile(path.join(__dirname, "/public/role.html"));
 });
 
 var port = process.env.PORT || 1337;

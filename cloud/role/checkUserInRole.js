@@ -1,7 +1,7 @@
-var ParseIndex = require("../index");
+var ParseIndex = require("../../index");
 
 module.exports = function checkUserInRole() {
-  //💡 checkUserInRole
+  //💡 checkUserInRole [userName, roleName] -> result
   Parse.Cloud.define("checkUserInRole", (req, res) => {
     const userName = req.params.userName;
     const roleName = req.params.roleName;
@@ -12,7 +12,6 @@ module.exports = function checkUserInRole() {
       .find({ useMasterKey: true }) //🔍
       .then(userResult => {
         var user = userResult[0];
-
         var queryRole = new Parse.Query(Parse.Role); // 👁‍🗨
         queryRole.equalTo("name", roleName);
         queryRole
@@ -34,15 +33,15 @@ module.exports = function checkUserInRole() {
             });
           })
           .catch(queryRoleError => {
-            res.error("Có lỗi tìm Role: " + queryRoleError.message);
+            res.error("⛔️ Có lỗi tìm Role: " + queryRoleError.message);
           });
       })
       .catch(queryUserError => {
-        res.error("Có lỗi khi tìm người dùng: " + queryUserError.message);
+        res.error("⛔️ Có lỗi khi tìm người dùng: " + queryUserError.message);
       });
   }); //end function
 
-  //💡 checkUserInAllRole
+  //💡 checkUserInAllRole [userName -> Result]
   Parse.Cloud.define("checkUserInAllRole", (req, res) => {
     const userName = req.params.userName;
     const queryUser = new Parse.Query(Parse.User); // 👁‍🗨
@@ -66,64 +65,18 @@ module.exports = function checkUserInRole() {
                     : role.get("name");
               });
               res.success(
-                `😃 "${userName}" ✅ thuộc ${roleResult.length} role :<br>${roleList}<br>`
+                `😃 "${userName}" thuộc ${roleResult.length} role  ✅:<br>${roleList}<br>`
               );
             } else {
               res.error(`😃 "${userName}" chưa được thêm vào role nào ⛔️ `);
             }
           })
           .catch(queryRoleError => {
-            res.error("Có lỗi tìm Role: " + queryRoleError.message);
+            res.error("⛔️ Có lỗi tìm Role: " + queryRoleError.message);
           });
       })
       .catch(queryUserError => {
-        res.error("Có lỗi khi tìm người dùng: " + queryUserError.message);
+        res.error("⛔️ Có lỗi khi tìm người dùng: " + queryUserError.message);
       });
   }); //end function
 }; //End export
-
-//Find user in all roles
-/* 
-var ParseIndex = require("../index");
-
-module.exports = function checkUserInRole() {
-  Parse.Cloud.define("checkUserInRole", (req, res) => {
-    //🔑
-    if (req.params.masterKey === ParseIndex.config.masterKey) {
-      //📝
-      const userName = req.params.userName;
-      const roleName = req.params.roleName;
-
-      const queryUser = new Parse.Query(Parse.User); // 👁‍🗨
-      queryUser.equalTo("username", userName);
-      queryUser
-        .find({ useMasterKey: true }) //🔍
-        .then(userResult => {
-          var user = userResult[0];
-
-          var queryRole = new Parse.Query(Parse.Role); // 👁‍🗨
-          queryRole.equalTo("users", user);
-          queryRole
-            .find({ useMasterKey: true }) //🔍
-            .then(roleResult => {
-              if (roleResult.length > 0) {
-                res.success(roleResult);
-              } else {
-                res.error("Người dùng chưa thêm vào role nào ⛔️ ");
-              }
-            })
-            .catch(queryRoleError => {
-              res.error("Có lỗi tìm Role: " + queryRoleError.message);
-            });
-        })
-        .catch(queryUserError => {
-          res.error("Có lỗi khi tìm người dùng: " + queryUserError.message);
-        });
-    } else {
-      res.error("⛔️");
-    }
-  }); //end function
-}; //End export
-
-
-*/

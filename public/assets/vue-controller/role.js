@@ -1,6 +1,6 @@
 Parse.initialize("cunghoctot");
 
-Parse.serverURL = window.location.href + "parse";
+Parse.serverURL = "http://" + window.location.host + "/parse";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
@@ -43,7 +43,8 @@ var vm = new Vue({
         this.userInfo.id = CurrentParseUser.id;
         this.userInfo.username = CurrentParseUser.get("username");
         alert(
-          ` ✨ <b> Chào mừng <u>${this.userInfo.username}</u> trở lại </b> ✨`
+          ` ✨ <b> Chào mừng <u>${this.userInfo.username}</u> trở lại </b> ✨`,
+          2
         );
         this.checkUserAllRole();
         this.getRoleList();
@@ -221,7 +222,7 @@ var vm = new Vue({
             this.loggedIn = true;
             document.body.innerHTML =
               "<br> <h3 style='color: white'>🚀 Đang tải thông tin ... </h3>";
-            document.body.className = "animated infinite flash";
+            document.body.className = "animated fadeIn";
             setTimeout(function() {
               history.go(0);
             }, 777);
@@ -241,7 +242,7 @@ var vm = new Vue({
           this.loggedIn = false;
           document.body.innerHTML =
             "<br> <h3 style='color: white'>🚀 Tải lại trang ... </h3>";
-          document.body.className = "animated infinite flash";
+          document.body.className = "animated fadeIn";
           setTimeout(function() {
             history.go(0);
           }, 777);

@@ -1,4 +1,4 @@
-var ParseIndex = require("../index");
+var ParseIndex = require("../../index");
 
 module.exports = function updateRole(params) {
   Parse.Cloud.define("updateRole", (req, res) => {
@@ -56,16 +56,16 @@ module.exports = function updateRole(params) {
                 })
                 .catch(httpRequestError => {
                   res.error(
-                    "Có lỗi khi Http Request: " + httpRequestError.message
+                    "⛔️ Có lỗi khi Http Request: " + httpRequestError.message
                   );
                 });
             })
             .catch(queryRoleError => {
-              res.error("Có lỗi tìm Role: " + queryRoleError.message);
+              res.error("⛔️ Có lỗi tìm Role: " + queryRoleError.message);
             });
         })
         .catch(queryUserError => {
-          res.error("Có lỗi tìm User: " + queryUserError.message);
+          res.error("⛔️ Có lỗi tìm User: " + queryUserError.message);
         });
     } else {
       res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑");
