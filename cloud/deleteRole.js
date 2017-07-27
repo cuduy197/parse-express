@@ -43,7 +43,7 @@ module.exports = function deleteRole(params) {
         res.error("⛔️ Không thể xóa role này ⛔️");
       }
     } else {
-      res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑");
+      res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑 ");
     } //end check Masterkey
   }); //end define
 }; //end cloud
