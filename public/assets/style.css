@@ -2,16 +2,24 @@
     display: none;
 }
 
+html,
 body {
     text-align: center;
     font-family: 'Comfortaa', 'Arial';
     font-size: 18px;
+    color: black !important;
     background: linear-gradient(312deg, #b377c5, #ff7f50);
+    height: 100%;
     background-size: 400% 400%;
     -webkit-animation: bgAnimated 30s ease infinite;
     -moz-animation: bgAnimated 30s ease infinite;
     -o-animation: bgAnimated 30s ease infinite;
     animation: bgAnimated 30s ease infinite;
+    overflow: hidden;
+}
+
+p {
+    color: black;
 }
 
 button {
@@ -25,7 +33,8 @@ button {
     box-shadow: 5px 5px 2px #888888;
 }
 
-button:hover {
+button:hover,
+button:focus {
     /*  transform: scale(1.1, 1.1); */
     background-color: white;
     color: black;
@@ -107,10 +116,10 @@ select:hover {
 .alertBox {
     position: absolute;
     font-family: 'Comfortaa', 'Arial';
-    top: 5vh;
+    top: 65vh;
     left: 65vw;
     right: .1vw;
-    min-width: 10em;
+    min-width: 12em;
     min-height: 10vh;
     border: solid 5px blanchedalmond;
     border-radius: 15px;

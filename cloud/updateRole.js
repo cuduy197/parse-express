@@ -68,7 +68,7 @@ module.exports = function updateRole(params) {
           res.error("Có lỗi tìm User: " + queryUserError.message);
         });
     } else {
-      res.error("⛔️");
+      res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑");
     }
   }); //end define
 }; //End export

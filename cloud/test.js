@@ -7,7 +7,7 @@ module.exports = function updateRole(params) {
       var userName = req.params.userName;
       var roleName = req.params.roleName;
     } else {
-      res.error("⛔️");
+      res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑");
     } //end check Masterkey
   }); //end define
 }; //end cloud

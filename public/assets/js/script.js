@@ -8,7 +8,8 @@ Vue.config.devtools = false;
 var vm = new Vue({
   el: "#app",
   data: {
-    hello: "Trang thử nghiệm tính năng Parse",
+    hello: "Trang dành cho nhà quản trị 😎",
+    activeName: "first",
     loggedIn: null,
     userInfo: {
       id: "",
@@ -16,6 +17,7 @@ var vm = new Vue({
       role: []
     },
     userInput: {
+      masterKey: "",
       name: "test",
       pass: "123456"
     },
@@ -57,7 +59,7 @@ var vm = new Vue({
         this.loading.checkRole = true;
         Parse.Cloud
           .run("deleteRole", {
-            masterKey: prompt("Mật khẩu 🔐", "kdkdsmile"),
+            masterKey: this.userInput.masterKey,
             roleName: this.roleInput.roleSelect
           })
           .then(
@@ -84,7 +86,7 @@ var vm = new Vue({
         this.loading.checkRole = true;
         Parse.Cloud
           .run("addRole", {
-            masterKey: prompt("Mật khẩu 🔐", "kdkdsmile"),
+            masterKey: this.userInput.masterKey,
             roleName: prompt("Tên role", "")
           })
           .then(
@@ -115,7 +117,7 @@ var vm = new Vue({
         console.log("editUserInRole_Cloud");
         Parse.Cloud
           .run("updateRole", {
-            masterKey: prompt("Mật khẩu 🔐", "kdkdsmile"),
+            masterKey: this.userInput.masterKey,
             userName: this.roleInput.userName,
             roleName: this.roleInput.roleSelect,
             mode: mode === "remove" ? "remove" : "add"
@@ -217,7 +219,8 @@ var vm = new Vue({
             this.userInfo.id = userLogin.id;
             this.userInfo.username = userLogin.get("username");
             this.loggedIn = true;
-            document.body.innerHTML = "<br> <h3>Đang tải thông tin ... </h3>";
+            document.body.innerHTML =
+              "<br> <h3 style='color: white'>🚀 Đang tải thông tin ... </h3>";
             document.body.className = "animated infinite flash";
             setTimeout(function() {
               history.go(0);
@@ -236,7 +239,8 @@ var vm = new Vue({
       Parse.User.logOut().then(
         ok => {
           this.loggedIn = false;
-          document.body.innerHTML = "<br> <h3>Tải lại trang ... </h3>";
+          document.body.innerHTML =
+            "<br> <h3 style='color: white'>🚀 Tải lại trang ... </h3>";
           document.body.className = "animated infinite flash";
           setTimeout(function() {
             history.go(0);

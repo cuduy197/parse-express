@@ -21,7 +21,7 @@ module.exports = function addRole(params) {
         res.error("⛔️ Tên role quá ngắn, yêu cần tối thiểu 3 ký tự ⛔️");
       }
     } else {
-      res.error("⛔️");
+      res.error("⛔️ Sai mật khẩu quản trị (masterKey) 🔑");
     } //end check Masterkey
   }); //end define
 }; //end cloud
