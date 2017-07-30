@@ -27,9 +27,11 @@ app.use("/parse", new ParseServer(config));
 // Serve static assets from the /public folder
 app.use("/public", express.static(path.join(__dirname, "/public")));
 
+//Index Router
 app.get("/", function(req, res) {
-  res.send("200");
+  res.redirect("/role");
 });
+
 app.get("/role", function(req, res) {
   res.sendFile(path.join(__dirname, "/public/role.html"));
 });

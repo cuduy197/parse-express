@@ -3,7 +3,7 @@ var ParseIndex = require("../index");
 module.exports = function updateRole(params) {
   Parse.Cloud.define("updateRole", (req, res) => {
     if (req.params.masterKey === ParseIndex.config.masterKey) {
-      //add logic
+      //add logic ✅
       var userName = req.params.userName;
       var roleName = req.params.roleName;
     } else {

@@ -14,7 +14,9 @@
 </head>
 
 <body style="background-color: black;">
+
     <div id="app" v-cloak>
+
         <!-- Đã đăng nhập -->
         <div v-if="loggedIn===null" class="animated fadeIn">
             <br>
@@ -142,10 +144,14 @@
             <!-- Chưa đăng nhập -->
         </div>
     </div>
+    <audio controls id="myAudio" class="w3-center" style="width: 100%; ">
+                           <source id="AudopScr" src="" type="audio/mp3">
+                         </audio>
     <script src="/public/assets/alertMod.js"></script>
     <script src="/public/assets/js/vue.js"></script>
     <script src="/public/assets/js/vue-element.js"></script>
     <script src="/public/assets/js/parse.min.js"></script>
+    <script src="/public/assets/parse_extend.js"></script>
     <script src="/public/assets/vue-controller/role.js"></script>
 
 </body>

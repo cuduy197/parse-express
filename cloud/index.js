@@ -3,13 +3,14 @@ var checkUserInRole = require("./role/checkUserInRole");
 var addRole = require("./role/addRole");
 var deleteRole = require("./role/deleteRole");
 
-//var test = require("./test");
+dev = require("./dev");
 
 //Run
 updateRole();
 checkUserInRole();
 addRole();
 deleteRole();
+dev();
 
 //Hello 😄👋
 Parse.Cloud.define("hello", function(req, res) {

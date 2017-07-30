@@ -49,3 +49,16 @@ function queryAll(x) {
 }
 
 //User-> Role -> HttpRequest
+
+/*
+  _                                 
+ |_) ._ _  ._ _  o  _  _     _. | | 
+ |   | (_) | | | | _> (/_   (_| | | 
+                                    
+*/
+Promise.all([
+  Parse.Cloud.run("promise"),
+  Parse.Cloud.run("promise2")
+]).then(result => {
+  console.log(result);
+});
