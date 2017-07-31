@@ -122,7 +122,7 @@ var style = `/* Alert  */
     border-radius: 5px;
     right: 2px;
     top: 0;
-    color: #34495e;
+    color: red;
     cursor: pointer;
 }
 

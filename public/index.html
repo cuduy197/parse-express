@@ -23,41 +23,78 @@
             <iframe src="https://www.youtube.com/embed/xmEhX5Ourzw?autoplay=1&iv_load_policy=3&loop=1&cc_load_policy=1rel=0&amp;controls=0&amp;showinfo=0&playlist=xmEhX5Ourzw" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-    <h1 style="color: white" class="animated fadeInDown">Trải nghiệm Happier</h1>
-    <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
-    <div class="animated fadeInUp">
-        <hr>
-        <div class="animated fadeInLeft">
-            <h2 style="color: white">Nút bấm</h2>
-            <button class="">Mặc định </button>
-            <button class="normal">Bình thường</button>
-            <button class="danger">Cảnh báo</button>
-            <button class="success">Đồng ý</button>
-            <button class="info">Thông tin</button>
-            <button class="warning">Xác nhận </button>
-            <button class="guide">Hướng dẫn </button>
+    <div id="app" style="display: none">
+
+
+        <h1 style="color: white" class="animated fadeInDown">Trải nghiệm Happier</h1>
+        <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
+        <div class="">
+            <hr>
+            <div class="animated fadeIn">
+                <h2 style="color: white">Nút bấm</h2>
+                <button class="">Mặc định </button>
+                <button class="normal">Bình thường</button>
+                <button class="danger">Cảnh báo</button>
+                <button class="success">Đồng ý</button>
+                <button class="info">Thông tin</button>
+                <button class="warning">Xác nhận </button>
+                <button class="guide">Hướng dẫn </button>
+            </div>
+            <br>
+            <div class="animated fadeIn">
+                <button class="normal2">Bình thường 2</button>
+                <button class="danger2">Cảnh báo 2</button>
+                <button class="success2">Đồng ý 2</button>
+                <button class="info2">Thông tin 2 </button>
+                <button class="warning2">Xác nhận 2</button>
+                <button class="guide2">Hướng dẫn 2</button>
+            </div>
+
+            <hr>
+
+            <h2 style="color: white">Thông báo</h2>
+            <button onclick="alert('Xin chào, chúc bạn ngày tốt lành :)')" class="animated zoomIn guide">Thử thông báo!</button>
+
+
+            <hr>
+
         </div>
-        <br>
-        <div class="animated fadeInRight">
-            <button class="normal2">Bình thường 2</button>
-            <button class="danger2">Cảnh báo 2</button>
-            <button class="success2">Đồng ý 2</button>
-            <button class="info2">Thông tin 2 </button>
-            <button class="warning2">Xác nhận 2</button>
-            <button class="guide2">Hướng dẫn 2</button>
-        </div>
-
-        <hr>
-
-        <h2 style="color: white">Thông báo</h2>
-        <button onclick="alert('Xin chào, chúc bạn ngày tốt lành :)')" class="animated zoomIn guide">Thử thông báo!</button>
-
-
-        <hr>
-
     </div>
-
+    <div id="wellcome">
+        <h1 class="animated flash" style="color: white; padding-top: 30vh">😃 Trải nghiệm đã sẵn sàng ...</h1>
+    </div>
     <!--   <script src="/public/assets/parse_extend.js"></script> -->
 </body>
+<script>
+    function getId(id) {
+        return document.getElementById(id)
+    }
+    var app = getId("app");
+    var wellcome = getId("wellcome");
+
+    function wait(ms) {
+        return new Promise(r => setTimeout(r, ms))
+    }
+
+    (async function main() {
+        console.log('sắp rồi...')
+        await wait(2007)
+        wellcome.innerHTML =
+            '<h1 class="animated fadeIn" style="color: white; padding-top: 30vh">😃</h1>';
+        console.log('chờ tí...')
+        await wait(2012)
+        wellcome.innerHTML =
+            '<h1 class="animated swing" style="color: white; padding-top: 30vh">🍀</h1>';
+        console.log('thêm chút nữa thôi...')
+        await wait(2016)
+        wellcome.innerHTML =
+            '<h1 class="animated flash" style="color: white; padding-top: 30vh">✨✨✨</h1>';
+        await wait(2016)
+        console.log('xong rồi đấy!')
+        app.style.display = "block";
+        app.className = "animated fadeIn"
+        wellcome.remove();
+    })();
+</script>
 
 </html>
