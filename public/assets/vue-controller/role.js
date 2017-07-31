@@ -22,7 +22,7 @@ var vm = new Vue({
       pass: "123456"
     },
     roleInput: {
-      userName: "test",
+      userName: "",
       roleSelect: "",
       roleList: []
     },
@@ -54,7 +54,7 @@ var vm = new Vue({
   },
   methods: {
     deleteRole_Cloud() {
-      console.log("addRole_Cloud");
+      console.log("deleteRole_Cloud");
       var xacNhan = confirm("Bạn muốn xóa role?");
       if (xacNhan) {
         this.loading.checkRole = true;
@@ -221,7 +221,7 @@ var vm = new Vue({
             this.userInfo.username = userLogin.get("username");
             this.loggedIn = true;
             document.body.innerHTML =
-              "<br> <h3 style='color: white'>🚀 Đang tải thông tin ... </h3>";
+              "<br> <h2 style='color: #455A64'>🚀 Đang tải thông tin ... </h2>";
             document.body.className = "animated fadeIn";
             setTimeout(function() {
               history.go(0);
@@ -241,7 +241,7 @@ var vm = new Vue({
         ok => {
           this.loggedIn = false;
           document.body.innerHTML =
-            "<br> <h3 style='color: white'>🚀 Tải lại trang ... </h3>";
+            "<br> <h2 style='color: #455A64'>🚀 Tải lại trang ... </h2>";
           document.body.className = "animated fadeIn";
           setTimeout(function() {
             history.go(0);

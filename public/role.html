@@ -9,18 +9,23 @@
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&amp;subset=vietnamese" rel="stylesheet">
     <link rel="stylesheet" href="/public/assets/style.css">
     <link rel="stylesheet" href="/public/assets/animate.min.css" />
-    <link rel="stylesheet" href="/public/assets/index.css">
+    <link rel="stylesheet" href="/public/assets/vue-element.css">
 
+    <script src="/public/assets/alertMod.js"></script>
+    <script src="/public/assets/js/vue.js"></script>
+    <script src="/public/assets/js/vue-element.js"></script>
+    <script src="/public/assets/js/parse.min.js"></script>
 </head>
 
 <body style="background-color: black;">
-
+    <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
+    <hr>
     <div id="app" v-cloak>
 
         <!-- Đã đăng nhập -->
         <div v-if="loggedIn===null" class="animated fadeIn">
             <br>
-            <h3 style="color:white">⚙️ Đang tải ... </h3>
+            <h2 style="color:#455A64">⚙️ Đang tải ... </h2>
         </div>
         <div v-else class="animated fadeIn">
             <div v-if="loggedIn" class="animated fadeIn">
@@ -45,8 +50,8 @@
                                     </button>
                                     <br><br>
                                 </div>
-                                <div v-else class="animated infinite fadeIn">
-                                    <p> Đang tải ... </p>
+                                <div v-else class="animated flipInX">
+                                    <p>Bạn chưa nằm trong role nào !</p>
                                 </div>
 
                             </div>
@@ -65,8 +70,8 @@
                                         <p>Nhập tài khoản: </p>
                                         <input v-model="roleInput.userName" type="text" style="width: 100%">
                                         <br> <br>
-                                        <button @click="checkUserInRole_Cloud">
-                                       ❓ Kiểm tra danh sách role của  "{{roleInput.userName}}"
+                                        <button class="warning" @click="checkUserInRole_Cloud">
+                                       ❓ Danh sách role của  "{{roleInput.userName}}"
                                         </button>
                                     </div>
                                     <div v-else class="animated infinite flash">
@@ -94,11 +99,11 @@
 
                                 <el-col :sm="12" :md="8">
                                     <p>Cập nhật role : </p>
-                                    <button @click="deleteRole_Cloud">
+                                    <button class="danger" @click="deleteRole_Cloud">
                                             Xóa role "{{roleInput.roleSelect}}" ⛔️
                                     </button>
                                     <br><br>
-                                    <button @click="addRole_Cloud">
+                                    <button class="success" @click="addRole_Cloud">
                                        Tạo thêm role  🔮
                                     </button>
                                 </el-col>
@@ -144,13 +149,12 @@
             <!-- Chưa đăng nhập -->
         </div>
     </div>
-    <audio controls id="myAudio" class="w3-center" style="width: 100%; ">
-                           <source id="AudopScr" src="" type="audio/mp3">
-                         </audio>
-    <script src="/public/assets/alertMod.js"></script>
-    <script src="/public/assets/js/vue.js"></script>
-    <script src="/public/assets/js/vue-element.js"></script>
-    <script src="/public/assets/js/parse.min.js"></script>
+    <!--     <audio controls id="myAudio" class="w3-center" style="width: 100%; " autoplay>
+     <source id="AudopScr"
+	 src="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=ok%20k%C3%AA&tl=vi-VN" 
+	 type="audio/mpeg">
+  </audio> -->
+
     <script src="/public/assets/parse_extend.js"></script>
     <script src="/public/assets/vue-controller/role.js"></script>
 

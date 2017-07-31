@@ -13,6 +13,6 @@ deleteRole();
 dev();
 
 //Hello 😄👋
-Parse.Cloud.define("hello", function(req, res) {
+Parse.Cloud.define("cool", function(req, res) {
   res.success("Hi");
 });

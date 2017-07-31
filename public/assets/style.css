@@ -2,182 +2,315 @@
     display: none;
 }
 
-html,
-body {
-    text-align: center;
-    font-family: 'Comfortaa', 'Arial';
-    font-size: 18px;
-    color: black !important;
-    background: linear-gradient(312deg, #b377c5, #ff7f50);
-    height: 100%;
-    background-size: 400% 400%;
+html {
+    overflow-x: hidden;
 }
 
-@media screen and (min-width: 900px) {
-    html,
-    body {
-        -webkit-animation: bgAnimated 30s ease infinite;
-        -moz-animation: bgAnimated 30s ease infinite;
-        -o-animation: bgAnimated 30s ease infinite;
-        animation: bgAnimated 30s ease infinite;
+hr {
+    border-radius: 5px;
+    border: 2px dashed white;
+    width: 75%;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 18px;
+    color: black !important;
+    background: linear-gradient(-200deg, #ecf0f1, #26c6da);
+    background-size: 110% 110%;
+}
+
+@media screen and (min-width: 900px) {}
+
+
+/* 
+                                                                                    
+ \_/ _     _|_     |_   _       o  _|  _   _ __ |_   _.  _ |   _  ._ _      ._   _| 
+  | (_) |_| |_ |_| |_) (/_   \/ | (_| (/_ (_)   |_) (_| (_ |< (_| | (_) |_| | | (_| 
+                                                               _|                   
+ */
+
+.video-background {
+    background: #000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -99;
+}
+
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .video-foreground {
+        height: 300%;
+        top: -100%;
     }
 }
 
-p {
-    color: black;
+@media (max-aspect-ratio: 16/9) {
+    .video-foreground {
+        width: 300%;
+        left: -100%;
+    }
 }
 
-button {
-    font-family: 'Comfortaa', 'Arial';
-    border: 2px solid white;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    font-size: 20px;
-    transition: all .25s linear 0s;
-    box-shadow: 5px 5px 2px #888888;
-}
 
-button:hover,
-button:focus {
-    /*  transform: scale(1.1, 1.1); */
-    background-color: white;
-    color: black;
-    border: solid 5px lightcoral;
-    box-shadow: 5px 5px 2px purple;
+/* End video youtube bg */
+
+
+/* 
+ __  .__   __. .______    __    __  .___________.
+|  | |  \ |  | |   _  \  |  |  |  | |           |
+|  | |   \|  | |  |_)  | |  |  |  | `---|  |----`
+|  | |  . `  | |   ___/  |  |  |  |     |  |     
+|  | |  |\   | |  |      |  `--'  |     |  |     
+|__| |__| \__| | _|       \______/      |__|     
+                                                 
+*/
+
+input:focus,
+button:focus,
+select:focus {
+    outline: 0;
 }
 
 input,
 select {
-    color: white;
-    font-family: 'Comfortaa', 'Arial';
-    text-align: center !important;
+    color: black;
+    font-family: 'Comfortaa', sans-serif;
+    /*     text-align: center !important; */
     border-radius: 5px;
     font-size: 15px;
-    background-color: black;
-    box-shadow: 5px 5px 2px #888888;
+    background-color: white;
+    box-shadow: 2px 2px 4px #888888;
     transition: all .25s linear 0s;
+    border: solid 2px lightcoral;
 }
 
 input:hover,
 select:hover {
-    border: solid 5px lightcoral;
-    box-shadow: 5px 5px 2px purple;
+    border: solid 2px lightcoral;
+    box-shadow: 4px 4px 6px purple;
     background-color: white;
     color: black;
 }
 
-@-webkit-keyframes bgAnimated {
-    0% {
-        background-position: 0% 70%;
-    }
-    50% {
-        background-position: 100% 31%;
-    }
-    100% {
-        background-position: 0% 70%;
-    }
-}
 
-@-moz-keyframes bgAnimated {
-    0% {
-        background-position: 0% 70%;
-    }
-    50% {
-        background-position: 100% 31%;
-    }
-    100% {
-        background-position: 0% 70%;
-    }
-}
-
-@-o-keyframes bgAnimated {
-    0% {
-        background-position: 0% 70%;
-    }
-    50% {
-        background-position: 100% 31%;
-    }
-    100% {
-        background-position: 0% 70%;
-    }
-}
-
-@keyframes bgAnimated {
-    0% {
-        background-position: 0% 70%;
-    }
-    50% {
-        background-position: 100% 31%;
-    }
-    100% {
-        background-position: 0% 70%;
-    }
-}
+/* end custom input */
 
 
-/* Alert  */
+/* 
+.______    __    __  .___________.___________.  ______   .__   __. 
+|   _  \  |  |  |  | |           |           | /  __  \  |  \ |  | 
+|  |_)  | |  |  |  | `---|  |----`---|  |----`|  |  |  | |   \|  | 
+|   _  <  |  |  |  |     |  |        |  |     |  |  |  | |  . `  | 
+|  |_)  | |  `--'  |     |  |        |  |     |  `--'  | |  |\   | 
+|______/   \______/      |__|        |__|      \______/  |__| \__| 
+                                                                    
+*/
 
-.alertBox {
-    position: absolute;
-    font-family: 'Comfortaa', 'Arial';
-    top: 65vh;
-    left: 65vw;
-    right: 1vw;
-    min-width: 12em;
-    min-height: 10vh;
-    border: solid 5px blanchedalmond;
-    border-radius: 15px;
-    /* background-color: black; */
+button {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: white;
     color: black;
-    padding: 2.34em 10px 0em 15px;
-    visibility: hidden;
-    font-weight: bolder;
-    transition: all .25s linear .2s;
-    z-index: 999999;
-    box-shadow: 5px 5px 2px #888888;
-    background: #fff;
-    background: -webkit-gradient( linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
-    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 5px;
-    -webkit-background-size: 100% 20px;
-    -moz-background-size: 100% 20px;
-    -ms-background-size: 100% 20px;
-    -o-background-size: 100% 20px;
-    background-size: 100% 20px;
+    border: solid 2px rgb(236, 240, 241);
+    border-radius: 10px;
+    font-size: 20px;
+    transition: all .25s linear 0s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+    padding: .2em;
 }
 
-.alertBox:hover {
-    border: solid 5px lightcoral;
-    box-shadow: 5px 5px 2px purple;
-}
-
-.alertClose {
-    font-family: 'Comfortaa', 'Arial';
-    z-index: 999999;
-    /*  font-weight: bolder; */
-    position: absolute;
-    border-radius: 5px;
-    right: 2px;
-    top: 0;
-    color: red;
+button:hover {
+    /* 
+      transform: scale(1.03, 1.03);
+    background-color: rgb(142, 68, 173);
+    color: white; 
+    padding: .3em;*/
+    border: solid 2px #2c3e50;
+    box-shadow: 4px 4px 6px #2c3e50;
     cursor: pointer;
+    transform: translateY(-2px);
 }
 
-.alertClose:hover {
-    text-decoration: underline;
+a {
+    color: #2c3e50;
 }
 
-@media screen and (max-width: 900px) {
-    .alertBox {
-        top: 0.2vh;
-        left: 5vw;
-        right: 5vw;
-        padding: 6vh 10px 0em 10px;
-        border: dashed 3px white;
-        transition: all .25s linear .2s;
+a:hover {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+
+/* Button effect push */
+
+button:active {
+    transform: translateY(4px) scale(0.9, 0.9);
+}
+
+
+/* Ripple magic */
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 50%;
+    transform: scale(1, 1) translate(-70%);
+    transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
     }
 }
+
+button:focus:not(:active)::after {
+    animation: ripple .75s ease-out;
+}
+
+.normal {
+    background: rgb(52, 73, 94);
+    color: white;
+    box-shadow: 2px 2px 4px #2c3e50;
+}
+
+.normal:hover,
+.danger:hover,
+.success:hover,
+.info:hover,
+.warning:hover,
+.guide:hover {
+    border: solid 2px rgb(236, 240, 241);
+}
+
+.danger {
+    color: white;
+    background: rgb(231, 76, 60);
+    box-shadow: 2px 2px 4px lightcoral;
+}
+
+.success {
+    color: white;
+    background: rgb(39, 174, 96);
+    box-shadow: 2px 2px 4px rgb(46, 204, 113);
+}
+
+.info {
+    color: white;
+    background: rgb(52, 152, 219);
+    box-shadow: 2px 2px 4px rgb(41, 128, 185);
+}
+
+.warning {
+    color: white;
+    background: rgb(243, 156, 18);
+    box-shadow: 2px 2px 4px rgb(243, 156, 18);
+}
+
+.guide {
+    color: white;
+    background: rgb(155, 89, 182);
+    box-shadow: 2px 2px 4px rgb(155, 89, 182);
+}
+
+.normal2 {
+    background-color: white;
+    color: rgb(52, 73, 94);
+    box-shadow: 2px 2px 4px #2c3e50;
+}
+
+.normal2:hover {
+    border: solid 2px #2c3e50;
+}
+
+.danger2 {
+    background-color: white;
+    color: rgb(231, 76, 60);
+    box-shadow: 2px 2px 4px lightcoral;
+}
+
+.danger2:hover {
+    border: solid 2px lightcoral;
+}
+
+.success2 {
+    color: rgb(39, 174, 96);
+    background-color: white;
+    box-shadow: 2px 2px 4px rgb(46, 204, 113);
+}
+
+.success2:hover {
+    border: solid 2px rgb(46, 204, 113);
+}
+
+.info2 {
+    color: rgb(52, 152, 219);
+    background-color: white;
+    box-shadow: 2px 2px 4px rgb(41, 128, 185);
+}
+
+.info2:hover {
+    border: solid 2px rgb(41, 128, 185);
+}
+
+.warning2 {
+    color: rgb(243, 156, 18);
+    background-color: white;
+    box-shadow: 2px 2px 4px rgb(243, 156, 18);
+}
+
+.warning2:hover {
+    border: solid 2px rgb(243, 156, 18);
+}
+
+.guide2 {
+    color: rgb(155, 89, 182);
+    background-color: white;
+    box-shadow: 2px 2px 4px rgb(155, 89, 182);
+}
+
+.guide2:hover {
+    border: solid 2px rgb(155, 89, 182);
+}
+
+
+/* end custom button */

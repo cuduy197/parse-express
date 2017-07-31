@@ -21,6 +21,7 @@ var config = {
   silent: false,
   facebookAppIds: "1932164860332051"
 };
+exports.config = config;
 
 app.use("/parse", new ParseServer(config));
 
@@ -28,11 +29,13 @@ app.use("/parse", new ParseServer(config));
 app.use("/public", express.static(path.join(__dirname, "/public")));
 
 //Index Router
-app.get("/", function(req, res) {
-  res.redirect("/role");
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
-
-app.get("/role", function(req, res) {
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/admin.html"));
+});
+app.get("/role", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/role.html"));
 });
 
@@ -44,5 +47,3 @@ httpServer.listen(port, function() {
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
-
-exports.config = config;

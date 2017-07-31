@@ -27,7 +27,6 @@ window.alert = function(msg, time) {
   alertClose.style.visibility = "visible";
 
   function closeAlertBox(e) {
-    console.log("Đóng thông báo " + id);
     alertBox = document.getElementById(id);
     alertClose = document.getElementById(closeId);
     alertBox.className = classNameOut;
@@ -49,7 +48,6 @@ window.alert = function(msg, time) {
   }, 1000);
 
   var AutoClose = setTimeout(function() {
-    console.log("Đóng thông báo " + id);
     alertBox = document.getElementById(id);
     alertClose = document.getElementById(closeId);
     alertClose.innerHTML = "Tự động đóng sau 5 giây";
@@ -77,7 +75,71 @@ window.alert = function(msg, time) {
 var styleNode = document.createElement("style");
 styleNode.type = "text/css";
 // browser detection (based on prototype.js)
-var style = ``;
+var style = `/* Alert  */
+
+.alertBox {
+    position: absolute;
+    font-family: 'Comfortaa', 'Arial';
+    top: 5vh;
+    left: 65vw;
+    right: 1vw;
+    min-width: 12em;
+    min-height: 10vh;
+    border: solid 5px blanchedalmond;
+    border-radius: 15px;
+    /* background-color: black; */
+    color: black;
+    padding: 2.34em 10px 0em 15px;
+    visibility: hidden;
+    font-weight: bolder;
+    transition: all .25s linear .2s;
+    z-index: 999999;
+    box-shadow: 2px 2px 4px #888888;
+    background: #fff;
+    background: -webkit-gradient( linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 5px;
+    -webkit-background-size: 100% 20px;
+    -moz-background-size: 100% 20px;
+    -ms-background-size: 100% 20px;
+    -o-background-size: 100% 20px;
+    background-size: 100% 20px;
+}
+
+.alertBox:hover {
+    border: solid 5px lightcoral;
+    box-shadow: 2px 2px 4px purple;
+}
+
+.alertClose {
+    font-family: 'Comfortaa', 'Arial';
+    z-index: 999999;
+    /*  font-weight: bolder; */
+    position: absolute;
+    border-radius: 5px;
+    right: 2px;
+    top: 0;
+    color: red;
+    cursor: pointer;
+}
+
+.alertClose:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 900px) {
+    .alertBox {
+        top: 0.2vh;
+        left: 5vw;
+        right: 5vw;
+        padding: 6vh 10px 0em 10px;
+        border: dashed 3px white;
+        transition: all .25s linear .2s;
+    }
+}`;
 if (!!(window.attachEvent && !window.opera)) {
   styleNode.styleSheet.cssText = style;
 } else {
