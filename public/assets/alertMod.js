@@ -115,14 +115,14 @@ var style = `/* Alert  */
 }
 
 .alertClose {
-    font-family: 'Comfortaa', 'Arial';
+    font-family: 'Comfortaa', san-serif;
     z-index: 999999;
     /*  font-weight: bolder; */
     position: absolute;
     border-radius: 5px;
     right: 2px;
     top: 0;
-    color: red;
+    color: #34495e;
     cursor: pointer;
 }
 
@@ -132,7 +132,7 @@ var style = `/* Alert  */
 
 @media screen and (max-width: 900px) {
     .alertBox {
-        top: 0.2vh;
+        top: 2vh;
         left: 5vw;
         right: 5vw;
         padding: 6vh 10px 0em 10px;

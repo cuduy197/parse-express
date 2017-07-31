@@ -26,7 +26,10 @@ body {
     background-size: 110% 110%;
 }
 
-@media screen and (min-width: 900px) {}
+
+/* 
+ @media screen and (min-width: 900px) {}
+ */
 
 
 /* 
@@ -67,6 +70,12 @@ body {
     .video-foreground {
         width: 300%;
         left: -100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #youtube_background {
+        display: none;
     }
 }
 
@@ -310,6 +319,12 @@ button:focus:not(:active)::after {
 
 .guide2:hover {
     border: solid 2px rgb(155, 89, 182);
+}
+
+@media screen and (max-width: 900px) {
+    button {
+        margin: .2em;
+    }
 }
 
 
