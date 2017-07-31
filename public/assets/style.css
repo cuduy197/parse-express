@@ -21,15 +21,17 @@ body {
     text-align: center;
     font-family: 'Comfortaa', sans-serif;
     font-size: 18px;
-    color: black !important;
-    background: linear-gradient(-200deg, #ecf0f1, #26c6da);
-    background-size: 110% 110%;
+    color: black;
+    background: linear-gradient(-230deg, #ecf0f1, #26c6da);
+    background-size: 100% 100%;
 }
 
-
-/* 
- @media screen and (min-width: 900px) {}
- */
+@media screen and (max-width: 900px) {
+    body {
+        background: #26c6da;
+        background-size: 100% 100%;
+    }
+}
 
 
 /* 
@@ -147,11 +149,6 @@ button {
 }
 
 button:hover {
-    /* 
-      transform: scale(1.03, 1.03);
-    background-color: rgb(142, 68, 173);
-    color: white; 
-    padding: .3em;*/
     border: solid 2px #2c3e50;
     box-shadow: 4px 4px 6px #2c3e50;
     cursor: pointer;
@@ -166,13 +163,6 @@ a:hover {
     border-radius: 5px;
     background-color: white;
     color: black;
-}
-
-
-/* Button effect push */
-
-button:active {
-    transform: translateY(4px) scale(0.9, 0.9);
 }
 
 
@@ -214,6 +204,13 @@ button:after {
 
 button:focus:not(:active)::after {
     animation: ripple .75s ease-out;
+}
+
+
+/* Button effect push */
+
+button:active {
+    transform: translateY(4px) scale(0.9, 0.9);
 }
 
 .normal {
