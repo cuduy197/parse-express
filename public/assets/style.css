@@ -122,6 +122,16 @@ select:hover {
     color: black;
 }
 
+a:hover {
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+a {
+    color: #2c3e50;
+}
+
 
 /* end custom input */
 
@@ -153,16 +163,6 @@ button:hover {
     box-shadow: 4px 4px 6px #2c3e50;
     cursor: pointer;
     transform: translateY(-2px);
-}
-
-a {
-    color: #2c3e50;
-}
-
-a:hover {
-    border-radius: 5px;
-    background-color: white;
-    color: black;
 }
 
 
@@ -206,6 +206,10 @@ button:focus:not(:active)::after {
     animation: ripple .75s ease-out;
 }
 
+button:focus {
+    outline: 0;
+}
+
 
 /* Button effect push */
 
@@ -213,116 +217,116 @@ button:active {
     transform: translateY(4px) scale(0.9, 0.9);
 }
 
-.normal {
+button.normal {
     background: rgb(52, 73, 94);
     color: white;
     box-shadow: 2px 2px 4px #2c3e50;
 }
 
-.normal:hover,
-.danger:hover,
-.success:hover,
-.info:hover,
-.warning:hover,
-.guide:hover {
+button.normal:hover,
+button.danger:hover,
+button.success:hover,
+button.info:hover,
+button.warning:hover,
+button.guide:hover {
     border: solid 2px rgb(236, 240, 241);
 }
 
-.danger {
+button.danger {
     color: white;
     background: rgb(231, 76, 60);
     box-shadow: 2px 2px 4px lightcoral;
 }
 
-.success {
+button.success {
     color: white;
     background: rgb(39, 174, 96);
     box-shadow: 2px 2px 4px rgb(46, 204, 113);
 }
 
-.info {
+button.info {
     color: white;
     background: rgb(52, 152, 219);
     box-shadow: 2px 2px 4px rgb(41, 128, 185);
 }
 
-.warning {
+button.warning {
     color: white;
     background: rgb(243, 156, 18);
     box-shadow: 2px 2px 4px rgb(243, 156, 18);
 }
 
-.guide {
+button.guide {
     color: white;
     background: rgb(155, 89, 182);
     box-shadow: 2px 2px 4px rgb(155, 89, 182);
 }
 
-.normal2 {
+button.normal2 {
     background-color: white;
     color: rgb(52, 73, 94);
     box-shadow: 2px 2px 4px #2c3e50;
 }
 
-.normal2:hover {
+button.normal2:hover {
     border: solid 2px #2c3e50;
 }
 
-.danger2 {
+button.danger2 {
     background-color: white;
     color: rgb(231, 76, 60);
     box-shadow: 2px 2px 4px lightcoral;
 }
 
-.danger2:hover {
+button.danger2:hover {
     border: solid 2px lightcoral;
 }
 
-.success2 {
+button.success2 {
     color: rgb(39, 174, 96);
     background-color: white;
     box-shadow: 2px 2px 4px rgb(46, 204, 113);
 }
 
-.success2:hover {
+button.success2:hover {
     border: solid 2px rgb(46, 204, 113);
 }
 
-.info2 {
+button.info2 {
     color: rgb(52, 152, 219);
     background-color: white;
     box-shadow: 2px 2px 4px rgb(41, 128, 185);
 }
 
-.info2:hover {
+button.info2:hover {
     border: solid 2px rgb(41, 128, 185);
 }
 
-.warning2 {
+button.warning2 {
     color: rgb(243, 156, 18);
     background-color: white;
     box-shadow: 2px 2px 4px rgb(243, 156, 18);
 }
 
-.warning2:hover {
+button.warning2:hover {
     border: solid 2px rgb(243, 156, 18);
 }
 
-.guide2 {
+button.guide2 {
     color: rgb(155, 89, 182);
     background-color: white;
     box-shadow: 2px 2px 4px rgb(155, 89, 182);
 }
 
-.guide2:hover {
+button.guide2:hover {
     border: solid 2px rgb(155, 89, 182);
 }
+
+
+/* end custom button */
 
 @media screen and (max-width: 900px) {
     button {
         margin: .2em;
     }
 }
-
-
-/* end custom button */
