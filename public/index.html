@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>😃 Trải nghiệm Happier ☁️</title>
+    <title>😃 Happier comming soon ...</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa&amp;subset=vietnamese" rel="stylesheet">
@@ -25,10 +25,18 @@
     </div>
     <div id="app" style="display: none">
 
+        <div style="padding: 0em 0 0 0; font-size: 3em;">
+            <h1 style="color: white" class="animated zoomIn">Happier</h1>
+            <h1 style="color: white" class="animated zoomIn">comming soon ...</h1>
+        </div>
+        <a href="https://www.facebook.com/groups/478149815856178"> <button class="info"> Facebook</button></a>
+        <br>
+        <br>
+        <a href="/test"><button class=""> Trang thử nghiệm </button></a>
 
-        <h1 style="color: white" class="animated fadeInDown">Trải nghiệm Happier</h1>
+
+        <!--         <div class="">
         <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
-        <div class="">
             <hr>
             <div class="animated fadeIn">
                 <h2 style="color: white">Nút bấm</h2>
@@ -54,14 +62,11 @@
 
             <h2 style="color: white">Thông báo</h2>
             <button onclick="alert('Xin chào, chúc bạn ngày tốt lành :)')" class="animated zoomIn guide">Thử thông báo!</button>
-
-
             <hr>
-
-        </div>
+        </div> -->
     </div>
     <div id="wellcome">
-        <h1 class="animated flash" style="color: white; padding-top: 30vh">😃 Trải nghiệm đã sẵn sàng ...</h1>
+        <h1 class="animated flash" style="color: white; padding-top: 30vh">💡</h1>
     </div>
     <!--   <script src="/public/assets/parse_extend.js"></script> -->
 </body>
@@ -72,29 +77,35 @@
     var app = getId("app");
     var wellcome = getId("wellcome");
 
+    setTimeout(function() {
+        app.style.display = "block";
+        app.className = "animated fadeIn"
+        wellcome.remove();
+    }, 3000);
+
     function wait(ms) {
         return new Promise(r => setTimeout(r, ms))
     }
 
-    (async function main() {
-        console.log('sắp rồi...')
-        await wait(2007)
-        wellcome.innerHTML =
-            '<h1 class="animated fadeIn" style="color: white; padding-top: 30vh">😃</h1>';
-        console.log('chờ tí...')
-        await wait(2012)
-        wellcome.innerHTML =
-            '<h1 class="animated swing" style="color: white; padding-top: 30vh">🍀</h1>';
-        console.log('thêm chút nữa thôi...')
-        await wait(2016)
-        wellcome.innerHTML =
-            '<h1 class="animated flash" style="color: white; padding-top: 30vh">✨✨✨</h1>';
-        await wait(2016)
-        console.log('xong rồi đấy!')
-        app.style.display = "block";
-        app.className = "animated fadeIn"
-        wellcome.remove();
-    })();
+    /*     (async function main() {
+            console.log('sắp rồi...')
+            await wait(2007)
+                         wellcome.innerHTML =
+                            '<h1 class="animated fadeIn" style="color: white; padding-top: 30vh">😃</h1>';
+                        console.log('chờ tí...')
+                        await wait(2012)
+                        wellcome.innerHTML =
+                            '<h1 class="animated swing" style="color: white; padding-top: 30vh">🍀</h1>';
+                        console.log('thêm chút nữa thôi...')
+                        await wait(2016)
+                        wellcome.innerHTML =
+                            '<h1 class="animated flash" style="color: white; padding-top: 30vh">✨✨✨</h1>';
+                        await wait(2016)
+                        console.log('xong rồi đấy!') 
+            app.style.display = "block";
+            app.className = "animated fadeIn"
+            wellcome.remove();
+        })(); */
 </script>
 
 </html>

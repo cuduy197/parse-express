@@ -28,7 +28,7 @@ body {
 
 @media screen and (max-width: 900px) {
     body {
-        background: #26c6da;
+        background: linear-gradient(-230deg, #ecf0f1, #26c6da);
         background-size: 100% 100%;
     }
 }
@@ -42,7 +42,7 @@ body {
  */
 
 .video-background {
-    background: #000;
+    background: linear-gradient(-230deg, #ecf0f1, #26c6da);
     position: fixed;
     top: 0;
     right: 0;
