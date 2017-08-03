@@ -27,7 +27,7 @@ app.use("/parse", new ParseServer(config));
 
 // Serve static assets from the /public folder
 app.use("/public", express.static(path.join(__dirname, "/public")));
-
+app.use("/static", express.static(path.join(__dirname, "/public/test/static")));
 //Index Router
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
@@ -37,6 +37,10 @@ app.get("/admin", (req, res) => {
 });
 app.get("/role", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/role.html"));
+});
+
+app.get("/test", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/test/index.html"));
 });
 
 var port = process.env.PORT || 1337;
