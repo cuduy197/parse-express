@@ -2,20 +2,45 @@
 <html>
 
 <head>
-    <title>Index</title>
+    <title>Admin test</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa&amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link rel="stylesheet" href="/public/assets/style.css">
     <link rel="stylesheet" href="/public/assets/animate.min.css" />
     <link rel="stylesheet" href="/public/assets/vue-element.css">
+
+    <script src="/public/assets/js/parse.min.js"></script>
+    <script src="/public/assets/js/vue.js"></script>
+    <script src="/public/assets/js/vue-element.js"></script>
+
 </head>
 
 <body>
-    <h1>Admin page!</h1>
     <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
-    <div id="app"></div>
+    <div id="app">
+        <div v-if="isLogin===null" class="animated infinite fadeIn">
+            <h1>Đang tải ...</h1>
+        </div>
+        <div v-else>
+            <div v-if="isLogin">
+                <button @click="LOGOUT">Log out</button>
+                <h1>{{hello}}</h1>
+                <button @click="cloud_isInRole('admin')">isAdmin</button>
+            </div>
+            <div v-else>
+                <input v-model="input.name">
+                <input v-model="input.pass">
+                <button @click="LOGIN">Login</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
     <script src="/public/assets/parse_extend.js"></script>
+    <script src="/public/assets/vue-controller/admin.js"></script>
 </body>
 
 </html>
