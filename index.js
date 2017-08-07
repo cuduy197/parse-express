@@ -1,10 +1,9 @@
 var express = require("express");
 var ParseServer = require("parse-server").ParseServer;
+var ParseDashboard = require("parse-dashboard");
 var path = require("path");
-var compression = require("compression");
 
 var app = express();
-app.use(compression());
 
 var config = {
   databaseURI: "mongodb://lab:123456@35.185.183.70:27017/lab",
@@ -24,6 +23,23 @@ var config = {
 exports.config = config;
 
 app.use("/parse", new ParseServer(config));
+
+var dashboard = new ParseDashboard(
+  {
+    apps: [
+      {
+        serverURL: "http://localhost:1337/parse",
+        appId: "cunghoctot",
+        masterKey: "kdkdsmile",
+        appName: "Cung Hoc Tot"
+      }
+    ]
+  },
+  true
+);
+
+// make the Parse Dashboard available at /dashboard
+app.use("/db", dashboard);
 
 // Serve static assets from the /public folder
 app.use("/public", express.static(path.join(__dirname, "/public")));

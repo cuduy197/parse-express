@@ -16,12 +16,11 @@
     },
     "license": "MIT",
     "dependencies": {
-        "compression": "^1.7.0",
-        "express": "~4.11.x",
-        "parse": "*",
-        "parse-server": "*"
+        "express": "latest",
+        "parse": "latest",
+        "parse-dashboard": "latest",
+        "parse-server": "latest"
     },
-
     "engines": {
         "node": ">=4.3"
     }
