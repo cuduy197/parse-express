@@ -28,7 +28,7 @@ var dashboard = new ParseDashboard(
   {
     apps: [
       {
-        serverURL: "http://localhost:1337/parse",
+        serverURL: "https://hosata.com/parse",
         appId: "cunghoctot",
         masterKey: "kdkdsmile",
         appName: "Cung Hoc Tot"
