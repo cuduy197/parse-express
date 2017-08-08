@@ -45,7 +45,7 @@ app.use("/db", dashboard);
 
 // Serve static assets from the /public folder
 app.use("/public", express.static(path.join(__dirname, "/public")));
-/* app.use("/static", express.static(path.join(__dirname, "/public/test/static"))); */
+app.use("/static", express.static(path.join(__dirname, "/public/vue/static"))); 
 //Index Router
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
