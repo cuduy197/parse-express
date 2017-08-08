@@ -84,29 +84,19 @@ var style = `/* Alert  */
     left: 65vw;
     right: 1vw;
     min-width: 12em;
+    text-align:center;
     min-height: 10vh;
     border: solid 5px blanchedalmond;
     border-radius: 15px;
     /* background-color: black; */
     color: black;
-    padding: 2.34em 10px 0em 15px;
+    padding: 2.34em 10px 2em 15px;
     visibility: hidden;
     font-weight: bolder;
     transition: all .25s linear .2s;
     z-index: 999999;
     box-shadow: 2px 2px 4px #888888;
     background: #fff;
-    background: -webkit-gradient( linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
-    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 5px;
-    -webkit-background-size: 100% 20px;
-    -moz-background-size: 100% 20px;
-    -ms-background-size: 100% 20px;
-    -o-background-size: 100% 20px;
-    background-size: 100% 20px;
 }
 
 .alertBox:hover {
@@ -117,7 +107,6 @@ var style = `/* Alert  */
 .alertClose {
     font-family: 'Comfortaa', san-serif;
     z-index: 999999;
-    /*  font-weight: bolder; */
     position: absolute;
     border-radius: 5px;
     right: 2px;

@@ -14,10 +14,10 @@ var config = {
   liveQuery: {
     classNames: ["realtime"]
   },
-  verbose: false,
+  verbose: true,
   allowClientClassCreation: false,
   enableAnonymousUsers: false,
-  silent: false,
+  silent: true,
   facebookAppIds: "1932164860332051"
 };
 exports.config = config;

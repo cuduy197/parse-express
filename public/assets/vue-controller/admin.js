@@ -1,6 +1,8 @@
 Parse.initialize("cunghoctot");
-Parse.serverURL = "http://" + window.location.host + "/parse";
+Parse.serverURL =
+  window.location.protocol + "//" + window.location.host + "/parse";
 
+Vue.use(VueMaterial);
 var vm = new Vue({
   el: "#app",
   data: {
@@ -16,15 +18,15 @@ var vm = new Vue({
       this.isLogin = false;
     } else {
       this.isLogin = true;
-      this.hello = Parse.User.current().get("username");
+      this.hello = "Xin chào: " + Parse.User.current().get("username");
     }
   },
   methods: {
     cloud_isInRole(roleName) {
       Parse.Cloud
         .run("isInRole", { r: roleName })
-        .then(result => console.log(result))
-        .catch(e => console.error(e.message));
+        .then(result => alert(result))
+        .catch(e => alert(e.message));
     },
 
     //Auth

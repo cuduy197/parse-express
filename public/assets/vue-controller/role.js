@@ -1,6 +1,6 @@
 Parse.initialize("cunghoctot");
 
-Parse.serverURL = "http://" + window.location.host + "/parse";
+Parse.serverURL = location.protocol + "//" + window.location.host + "/parse";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

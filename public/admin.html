@@ -6,32 +6,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    <link rel="stylesheet" href="/public/assets/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/public/assets/animate.min.css" />
-    <link rel="stylesheet" href="/public/assets/vue-element.css">
+    <link rel="stylesheet" href="/public/assets/vue-material.css">
 
+    <script src="/public/assets/alertMod.js"></script>
     <script src="/public/assets/js/parse.min.js"></script>
     <script src="/public/assets/js/vue.js"></script>
-    <script src="/public/assets/js/vue-element.js"></script>
+    <script src="/public/assets/js/vue-material.js"></script>
 
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        
+        body {
+            font-family: "Comfortaa";
+            text-align: center;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <a href="/">#Home</a> <a href="/role">#Role</a> <a href="/admin">#Admin</a>
-    <div id="app">
+
+    <div id="app" v-cloak>
         <div v-if="isLogin===null" class="animated infinite fadeIn">
             <h1>Đang tải ...</h1>
+            <md-spinner :md-size="150" :md-stroke="1" md-indeterminate></md-spinner>
         </div>
         <div v-else>
             <div v-if="isLogin">
-                <button @click="LOGOUT">Log out</button>
-                <h1>{{hello}}</h1>
-                <button @click="cloud_isInRole('admin')">isAdmin</button>
+
+                <md-tabs class="" md-fixed>
+                    <md-tab md-label="Trang chủ" md-icon="home">
+                        <h1>{{hello}}</h1>
+                        <md-button @click="cloud_isInRole('admin')" class="md-raised md-primary">isAdmin</md-button>
+                    </md-tab>
+
+                    <md-tab md-label="Phân quyền" md-icon="supervisor_account">
+                        <p>Lorem ipsum dolor sit amet.</p>
+
+                    </md-tab>
+
+                    <md-tab md-label="Thống kê" md-icon="show_chart">
+                        <p>Lorem ipsum</p>
+                    </md-tab>
+                    <md-tab md-label="Cài đặt" md-icon="build">
+                        <md-button @click="LOGOUT" class="md-raised md-accent">
+                            Đăng xuất
+                        </md-button>
+                    </md-tab>
+                </md-tabs>
+
             </div>
             <div v-else>
-                <input v-model="input.name">
-                <input v-model="input.pass">
-                <button @click="LOGIN">Login</button>
+                <md-toolbar>
+                    <h1 class="md-title">Happier</h1>
+                </md-toolbar>
+                <br>
+                <h1>Chào mừng tới trang thử nghiệm !</h1>
+                <hr>
+
+                <md-layout md-align="center" md-gutter="16">
+                    <md-layout md-flex-small="90" md-flex="30">
+                        <md-input-container>
+                            <md-icon>face</md-icon>
+                            <label>Tài khoản</label>
+                            <md-input v-model="input.name"></md-input>
+                        </md-input-container>
+                        <md-input-container md-has-password>
+                            <md-icon>https</md-icon>
+                            <label>Mật khẩu</label>
+                            <md-input v-model="input.pass" type="password"></md-input>
+                        </md-input-container>
+                    </md-layout>
+                </md-layout>
+
+
+                <br><br>
+
+
+                <md-button @click="LOGIN" class="md-raised md-primary">Đăng nhập</md-button>
             </div>
         </div>
 
